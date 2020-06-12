@@ -2,6 +2,7 @@ package com.lambdaschool.todos.controllers;
 
 import com.lambdaschool.todos.models.User;
 import com.lambdaschool.todos.services.UserService;
+import com.lambdaschool.todos.views.JustTheCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -83,6 +84,11 @@ public class UserController {
     }
 
     //  GET /users/users/todos - lists the number of todos each user has that are NOT completed. Use a custom query to accomplish this!
-
+    @GetMapping(value = "/users/todos")
+    public ResponseEntity<?> viewTodos()
+    {
+        List<JustTheCount> todoList = userService.countTodos();
+        return new ResponseEntity<>(todoList, HttpStatus.OK);
+    }
 
 }

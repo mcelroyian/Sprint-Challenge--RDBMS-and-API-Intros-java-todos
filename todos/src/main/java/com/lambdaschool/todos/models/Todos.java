@@ -74,4 +74,8 @@ public class Todos extends Auditable{
     public Date getCreatedDate() {
         return createdDate;
     }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
 }

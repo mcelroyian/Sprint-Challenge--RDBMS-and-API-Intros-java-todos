@@ -3,6 +3,7 @@ package com.lambdaschool.todos.services;
 import com.lambdaschool.todos.models.Todos;
 import com.lambdaschool.todos.models.User;
 import com.lambdaschool.todos.repository.UserRepository;
+import com.lambdaschool.todos.views.JustTheCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -121,5 +122,10 @@ public class UserServiceImpl implements UserService{
         }
 
         return userRepository.save(currentUser);
+    }
+
+    @Override
+    public List<JustTheCount> countTodos() {
+        return userRepository.countTodos();
     }
 }

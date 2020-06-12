@@ -44,15 +44,14 @@ public class TodoController {
 
     //  PATCH /todos/todo/{todoid} - mark a todo as completed.
 
-    @PatchMapping(value = "/todo/{id}",
-            consumes = {"application/json"})
+    @PatchMapping(value = "/todo/{id}")
     public ResponseEntity<?> updateTodo(
-            @RequestBody
-                    Todos updatedTodo,
-            @PathVariable
-                    long id)
+            @PathVariable long id)
     {
-        todoService.update(id, updatedTodo);
+        Todos todo = todoService.findTodoById(id);
+        todo.setCompleted(!todo.isCompleted());
+
+        todoService.update(id, todo);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

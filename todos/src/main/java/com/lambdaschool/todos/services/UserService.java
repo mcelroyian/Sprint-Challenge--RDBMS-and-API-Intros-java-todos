@@ -1,6 +1,7 @@
 package com.lambdaschool.todos.services;
 
 import com.lambdaschool.todos.models.User;
+import com.lambdaschool.todos.views.JustTheCount;
 
 import java.util.List;
 
@@ -20,6 +21,6 @@ public interface UserService {
 
     User update(User user, long id);
 
-
+    List<JustTheCount> countTodos();
 
 }
