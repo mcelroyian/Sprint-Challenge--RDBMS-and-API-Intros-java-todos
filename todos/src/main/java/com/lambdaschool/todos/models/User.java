@@ -34,7 +34,7 @@ public class User extends Auditable
     public User() {
     }
 
-    public User(String username, String primaryemail, String password, List<Todos> todos) {
+    public User(String username, String password, String primaryemail) {
         setUsername(username);
         this.primaryemail = primaryemail;
         this.password = password;
